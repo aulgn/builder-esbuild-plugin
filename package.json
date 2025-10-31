@@ -1,0 +1,52 @@
+{
+  "name": "@aulgn/builder-esbuild-plugin",
+  "version": "0.0.1",
+  "description": "A Plugin for builder",
+  "keywords": [
+    "builder",
+    "plugin",
+    "esbuild"
+  ],
+  "homepage": "https://github.com/aulgn/builder-esbuild-plugin#readme",
+  "bugs": {
+    "url": "https://github.com/aulgn/builder-esbuild-plugin/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aulgn/builder-esbuild-plugin.git"
+  },
+  "license": "MIT",
+  "author": "aulgn",
+  "type": "module",
+  "main": "./dist/aulgn-builder-plugin.cjs",
+  "module": "./dist/aulgn-builder-plugin.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/aulgn-builder-plugin.mjs",
+      "require": "./dist/aulgn-builder-plugin.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rimraf dist && rollup -c",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.8",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-typescript": "^12.1.4",
+    "@types/node": "^24.8.0",
+    "rimraf": "^6.0.1",
+    "rollup": "^4.52.4",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@aulgn/types": "file:../types",
+    "esbuild": "^0.25.11",
+    "eventemitter3": "^5.0.1"
+  }
+}
